@@ -270,14 +270,10 @@ int main(int argc, char *argv[]) {
       if (1 || isatty(1))   // fix this.  for interactive from menu bar.
 #endif
       {
-#ifdef HAVE_WX
-	extern char *SVN;
-#endif
 	char version[20];
 	lcleartext(NIL);
 #ifdef HAVE_WX
 	strcpy(version,"6.0");
-	strcat(version,SVN);
 #else
 	strcpy(version,"5.6");
 #endif

@@ -7,7 +7,7 @@
 /svn.c
 *.o
 /makehelp
-/logo
+/ucblogo
 /bin
 /lib
 /docs/ucblogo.info
