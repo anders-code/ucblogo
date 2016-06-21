@@ -6,7 +6,7 @@ HTMLDIR	      = $(DOCSDIR)/html
 all: usermanual.ps usermanual.pdf html/usermanual_1.html ucblogo.info
 
 ucblogo.info: usermanual.texi
-	makeinfo usermanual.texi
+	makeinfo --no-warn usermanual.texi
 
 usermanual.dvi: usermanual.texi
 	tex --interaction batchmode usermanual.texi
@@ -24,8 +24,9 @@ usermanual.pdf: usermanual.ps usermanual.dvi
 html/usermanual_1.html: usermanual.texi
 	for d in html; do [ -d $$d ] || mkdir -p $$d || exit 1; done
 	texi2html --expand tex --split chapter --no-iftex usermanual.texi
-	mv usermanual/*.html html
-	rmdir usermanual
+	mv *.html html
+	#mv usermanual/*.html html
+	#rmdir usermanual
 
 ship:
 	-rm -f *.{aux,cp,cps,dvi,fn,ky,log,pg,toc,tp,vr}
